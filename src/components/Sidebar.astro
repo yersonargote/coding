@@ -1,0 +1,121 @@
+---
+const sidebarSections = [
+    {
+        text: 'Terminal',
+        type: 'category', // Define your custom type if needed
+        children: [
+        { text: 'Windows Terminal', slug: 'windows-terminal' },
+        { text: 'Kitty Terminal', slug: 'kitty-terminal' }
+        ]
+    },
+    {
+        text: 'Languages',
+        type: 'category',
+        children: [
+        { text: 'Python', slug: 'python' },
+        { text: 'Java', slug: 'java' },
+        { text: 'JavaScript', slug: 'javascript' },
+        { text: 'Rust', slug: 'rust' }
+        ]
+    },
+    {
+        text: 'Editors',
+        type: 'category',
+        children: [
+        { text: 'VSCode', slug: 'vscode' },
+        { text: 'Neovim', slug: 'nvim' }
+        ]
+    }
+];
+
+// Function to handle toggle
+function toggleSection(event) {
+  const section = event.currentTarget.nextElementSibling;
+  section.style.display = section.style.display === 'block' ? 'none' : 'block';
+}
+---
+<aside class="sidebar">
+    <nav>
+    {sidebarSections.map(section => (
+        <div key={section.text}>
+        <button onClick={toggleSection}>{section.text}</button>
+        <ul style="display: none;">
+            {section.children.map(child => (
+            <li key={child.slug}>
+                <a href={`/${child.slug}`}>{child.text}</a>
+            </li>
+            ))}
+        </ul>
+        </div>
+    ))}
+    </nav>
+</aside>
+
+<script>
+  // Inline script to handle the toggle functionality
+  document.querySelectorAll('nav > div > button').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const ul = e.target.nextElementSibling;
+      ul.style.display = ul.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+<style>
+    .sidebar {
+        box-sizing: border-box;
+        background-color: #23262d;
+        border-radius: 7px;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        overflow-y: auto; /* Allows scrolling if the content is too long */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sidebar button {
+        all: unset;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        background-color: #23262d;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .sidebar button:hover, .sidebar button:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgb(var(--accent-light));
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding-left: 1rem;
+    }
+
+    .sidebar li {
+        margin: 0.5rem 0;
+    }
+
+    .sidebar a {
+        margin: 1.25rem 0;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: white;
+        text-decoration: none;
+        padding: 0.2rem;
+        border-radius: 8px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .sidebar a:hover, .sidebar a:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgb(var(--accent-light));
+    }
+</style>
