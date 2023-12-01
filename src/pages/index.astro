@@ -1,43 +1,37 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Card from '@/components/Card.astro';
-import styles from '@/styles/blog.module.css';
 import Sidebar from '@/components/Sidebar.astro';
+import Header from '@/components/Header.astro';
 
 ---
 
-<Layout title="Coding Connoisseur" description="">
-	<div slot="sidebar">
-		<Sidebar />
-	</div>
-	<div slot="main">
-		<h1>Coding <span class="text-gradient">Connoisseur</span></h1>
-		<p class="instructions">
-			In this blog you will learn how to configure your <strong>development environment</strong> in different programming languages and using different tools.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/languages/"
-				title="Programming Languages"
-				body="Learn how to install some most used programming languages."
-			/>
-			<Card
-				href="/editors/"
-				title="Editors"
-				body="Learn to install and use some editors."
-			/>
-			<Card
-				href="/os/"
-				title="Operating Systems"
-				body="Learn how to setup some OS."
-			/>
-			<Card
-				href="/about/"
-				title="About"
-				body="❤️"
-			/>
-		</ul>
-	</div>
+<Layout title="Coding Connoisseur" description="This is a page for">
+	<p class="instructions">
+		In this blog you will learn how to configure your <strong>development environment</strong> in different programming languages and using differents tools.
+	</p>
+	<ul role="list" class="link-card-grid">
+		<Card
+			href="/languages/"
+			title="Programming Languages"
+			body="Learn how to install some most used programming languages."
+		/>
+		<Card
+			href="/editors/"
+			title="Editors"
+			body="Learn to install and use some editors."
+		/>
+		<Card
+			href="/os/"
+			title="Operating Systems"
+			body="Learn how to setup some OS."
+		/>
+		<Card
+			href="/about/"
+			title="About"
+			body="❤️"
+		/>
+	</ul>
 </Layout>
 
 <style>

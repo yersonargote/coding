@@ -1,6 +1,10 @@
 ---
+import Header from '@/components/Header.astro';
+import Sidebar from '@/components/Sidebar.astro';
+
 interface Props {
 	title: string;
+	description: string;
 }
 
 const { title = '', description = '' } = Astro.props;
@@ -18,25 +22,39 @@ const { title = '', description = '' } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<aside class="sidebar">
-			<slot name="sidebar"/>
+		<header>
+			<Header/>
+		</header>
+		<aside>
+			<Sidebar/>
 		</aside>
 		<main>
-			<slot name="main"/>
+			<slot/>
 		</main>
 	</body>
 </html>
 
 <style>
+
 	body {
+		display: grid;
+		grid-template-areas: 
+		"header header"
+		"aside main";
+		grid-template-columns: 0.8fr 6fr;
+		grid-template-rows: auto 1fr;
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 		height: 100vh;
-		display: grid;
-		grid-template: 
-		"aside main";
-		grid-template-columns: 1fr 6fr;
+	}
+
+	header {
+		grid-area: header;
+		background-color: #1e2028;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+		border-radius: 7px;
+		padding: 1rem;
 	}
 
 	main {
@@ -46,18 +64,28 @@ const { title = '', description = '' } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		min-height: 100vh;
+		justify-content: start;
 		color: white;
 	}
 
 	aside {
-		box-sizing: border-box;
 		grid-area: aside;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
         padding: 1rem;
 		background-color: #1e2028;
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         border-radius: 7px;
+	}
+
+	footer {
+		grid-area: footer;
+		background-color: #1e2028;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+		border-radius: 7px;
+		padding: 1rem;
 	}
 </style>
 
@@ -78,6 +106,7 @@ const { title = '', description = '' } = Astro.props;
 		background: #13151a;
 		background-size: 224px;
 	}
+
 	code {
 		font-family:
 			Menlo,
@@ -89,6 +118,7 @@ const { title = '', description = '' } = Astro.props;
 			Courier New,
 			monospace;
 	}
+
 	h1 {
 		font-size: 4rem;
 		font-weight: 700;
