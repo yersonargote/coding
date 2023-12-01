@@ -1,0 +1,56 @@
+.sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.category .children {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1rem;
+}
+
+.sidebar button {
+    width: 100%;
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: #23262d;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar button:hover, .sidebar button:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(var(--accent-light)); /* Assuming --accent-light is defined in your CSS variables */
+}
+
+.sidebar ul {
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    padding-left: 0.2rem;
+}
+
+.sidebar li {
+    margin: 0.5rem 0.5rem;
+}
+
+.sidebar a {
+    margin: 0;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.sidebar a:hover, .sidebar a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(var(--accent-blue-light)); /* Adjust if needed */
+}
