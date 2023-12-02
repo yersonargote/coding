@@ -1,8 +1,9 @@
 ---
-import Code from "@/components/Code/Copy";
+import Code from "@/components/Code/Code.jsx";
 import Layout from "@/layouts/Layout.astro";
 
-const wslInstall = "wsl --install";
+const wslInstall = `wsl --install`;
+const language = "bash";
 ---
 
 <Layout title="Windows terminal" description="Setup windows terminal">
@@ -30,7 +31,7 @@ const wslInstall = "wsl --install";
          <p class="information">
             In the <strong>PowerShell</strong> terminal, you can use install the <strong>Windows Subsystem for Linux 2 (WSL2)</strong> with the following command:
          </p>
-         <Code code={wslInstall} client:load/>
+         <Code code={wslInstall} language={language} client:load/>
          <p class="instructions">
             More information can be found on the
              <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Microsoft Docs</a>.

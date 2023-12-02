@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
-import "@/components/Code/Copy.css";
+import "@/components/Code/Code.css";
 
-const Code = ({ code }) => {
+const Code = ({ code, language }) => {
     const [copySuccess, setCopySuccess] = useState('');
 
     const copyToClipboard = async () => {
@@ -16,14 +16,17 @@ const Code = ({ code }) => {
     };
 
     return (
-        <div>
-            <pre class="code-block">
+        <section class="code-block">
+            <header>
+                <span class="language">{language}</span>
+                {copySuccess && <span class="copy-success">{copySuccess}</span>}
+                <button class="copy-button" onClick={copyToClipboard}>Copy</button>
+            </header>
+            <hr />
+            <pre>
                 <code>{code}</code>
             </pre>
-            <button class="copy-button" onClick={copyToClipboard}>Copy</button>
-            
-            {copySuccess && <span class="copy-success">{copySuccess}</span>}
-        </div>
+        </section>
     );
 };
 
