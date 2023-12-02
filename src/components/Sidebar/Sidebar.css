@@ -5,7 +5,13 @@
     gap: 0.5rem;
 }
 
-.category .children {
+.sidebar .category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar .category .children {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -26,7 +32,7 @@
 
 .sidebar button:hover, .sidebar button:focus {
     background-color: rgba(255, 255, 255, 0.1);
-    color: rgb(var(--accent-light)); /* Assuming --accent-light is defined in your CSS variables */
+    color: rgb(var(--accent-light));
 }
 
 .sidebar ul {
