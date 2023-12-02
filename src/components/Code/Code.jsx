@@ -17,12 +17,12 @@ const Code = ({ code, language }) => {
 
     return (
         <section class="code-block">
-            <header>
+            <header class="header-code">
                 <span class="language">{language}</span>
                 {copySuccess && <span class="copy-success">{copySuccess}</span>}
                 <button class="copy-button" onClick={copyToClipboard}>Copy</button>
             </header>
-            <hr />
+            <hr class="hr-code" />
             <pre>
                 <code>{code}</code>
             </pre>

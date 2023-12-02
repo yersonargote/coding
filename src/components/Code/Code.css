@@ -8,12 +8,12 @@
     border-radius: 8px;
 }
 
-hr {
+.hr-code {
     border: 1px solid rgba(var(--accent-light), 25%);
     margin: 0;
 }
 
-header {
+.header-code {
     display: flex;
     justify-content: space-between;
     align-items: center;
