@@ -3,98 +3,284 @@ import Code from "@/components/Code/Code.jsx";
 import Layout from "@/layouts/Layout.astro";
 
 const wslInstall = `wsl --install`;
-const language = "bash";
+const language = "powershell";
 ---
 
-<Layout title="Windows terminal" description="Setup windows terminal">
-   <h2>Windows Terminal</h2> 
-   <section>
+<Layout title="Windows terminal setup" description="Setup windows terminal">
+  <header class="header-h2">
+    <h2>Windows Terminal</h2>
+  </header>
+  <div class="body-main">
+    <section>
       <article>
-         <p class="information">
-            <strong>Windows Terminal</strong> is a new, modern, feature-rich, productive terminal application for command-line users. 
-         </p>
+        <p class="information">
+          <strong>Windows Terminal</strong> is a new, modern, feature-rich,
+          productive terminal application for command-line users.
+        </p>
       </article>
+    </section>
+
+    <section>
+      <header>
+        <h3>Install Windows Terminal</h3>
+      </header>
       <article>
-         <h3>Install Windows Terminal</h3>
-         <p class="instructions">Install windows terminal from the
-            <a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab" target="_blank" rel="noopener noreferrer">Microsoft Store</a>.
-         </p>
+        <p class="instructions">
+          Install windows terminal from the
+          <a
+            href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab"
+            target="_blank"
+            rel="noopener noreferrer">Microsoft Store</a
+          >.
+        </p>
       </article>
+    </section>
+
+    <section>
+      <header>
+        <h3>WSL2</h3>
+      </header>
       <article>
-         <h3>WSL2</h3>
-         <p class="information">
-            As developers we need to be able to run Linux commands on our machines. <strong>Windows Subsystem for Linux 2 (WSL2)</strong> is a great way to do this.
-         </p>
+        <p class="information">
+          As developers we need to be able to run Linux commands on our
+          machines. <strong>Windows Subsystem for Linux 2 (WSL2)</strong> is a
+          great way to do this.
+        </p>
       </article>
+    </section>
+    <section>
+      <header>
+        <h3>Install WSL2</h3>
+      </header>
       <article>
-         <h3>Install WSL2</h3>
-         <p class="information">
-            In the <strong>PowerShell</strong> terminal, you can use install the <strong>Windows Subsystem for Linux 2 (WSL2)</strong> with the following command:
-         </p>
-         <Code code={wslInstall} language={language} client:load/>
-         <p class="instructions">
-            More information can be found on the
-             <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Microsoft Docs</a>.
-         </p>
+        <p class="information">
+          In <strong>PowerShell</strong>, you can use install <strong
+            >WSL2</strong
+          > with the following command:
+        </p>
+        <Code code={wslInstall} language={language} client:load />
+        <p class="instructions">
+          More information can be found on the
+          <a
+            href="https://docs.microsoft.com/en-us/windows/wsl/install-win10"
+            target="_blank"
+            rel="noopener noreferrer">Microsoft Docs</a
+          >.
+        </p>
       </article>
-   </section>
+    </section>
+    <section>
+      <header>
+        <h3>Install anothers Linux distributions</h3>
+      </header>
+      <article>
+        <p class="information">
+          By default <code>wsl --install</code> install Ubuntu-22.04.
+        </p>
+        <p class="information">
+          Install anothers distros using <code
+            >wsl.exe --install &lt;Distro&gt;</code
+          >.
+        </p>
+        <table border="1">
+          <caption>Available Linux distributions</caption>
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>FRIENDLY NAME</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ubuntu</td>
+              <td>Ubuntu</td>
+            </tr>
+            <tr>
+              <td>Debian</td>
+              <td>Debian GNU/Linux</td>
+            </tr>
+            <tr>
+              <td>kali-linux</td>
+              <td>Kali Linux Rolling</td>
+            </tr>
+            <tr>
+              <td>Ubuntu-18.04</td>
+              <td>Ubuntu 18.04 LTS</td>
+            </tr>
+            <tr>
+              <td>Ubuntu-20.04</td>
+              <td>Ubuntu 20.04 LTS</td>
+            </tr>
+            <tr>
+              <td>Ubuntu-22.04</td>
+              <td>Ubuntu 22.04 LTS</td>
+            </tr>
+            <tr>
+              <td>OracleLinux_7_9</td>
+              <td>Oracle Linux 7.9</td>
+            </tr>
+            <tr>
+              <td>OracleLinux_8_7</td>
+              <td>Oracle Linux 8.7</td>
+            </tr>
+            <tr>
+              <td>OracleLinux_9_1</td>
+              <td>Oracle Linux 9.1</td>
+            </tr>
+            <tr>
+              <td>openSUSE-Leap-15.5</td>
+              <td>openSUSE Leap 15.5</td>
+            </tr>
+            <tr>
+              <td>SUSE-Linux-Enterprise-Server-15-SP4</td>
+              <td>SUSE Linux Enterprise Server 15 SP4</td>
+            </tr>
+            <tr>
+              <td>SUSE-Linux-Enterprise-15-SP5</td>
+              <td>SUSE Linux Enterprise 15 SP5</td>
+            </tr>
+            <tr>
+              <td>openSUSE-Tumbleweed</td>
+              <td>openSUSE Tumbleweed</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </div>
 </Layout>
 
 <style>
-	.instructions {
-		margin: 1rem 0;
-      padding: 1.5rem 1.5rem 1.5rem 0;
-		border-radius: 8px;
-	}
-   
-	.instructions code {
-		font-size: 0.8em;
-		color: rgb(var(--accent-light));
-		padding: 0.3em 0.4em;
-	}
+  .body-main {
+    min-width: 8rem;
+  }
 
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
+  .instructions {
+    margin: 0;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 8px;
+  }
 
-   .instructions a {
-      color: rgb(var(--accent-light));
-      font-weight: bold;
-      text-decoration: none;
+  .instructions code {
+    font-size: 1rem;
+    color: rgb(var(--accent-light));
+    padding: 0.3em 0.4em;
+  }
 
-   }
-   .information {
-		margin: 1rem 0;
-      padding: 1.5rem 1.5rem 1.5rem 0;
-      border-radius: 8px;
-   }
-   .information strong {
-      color: rgb(var(--accent-blue-light));
-   }
-   .information a {
-      color: rgb(var(--accent-blue-light));
-      font-weight: bold;
-      text-decoration: none;
-   }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
 
-   .information a:hover {
-      text-decoration: underline;
-   }
+  .instructions a {
+    color: rgb(var(--accent-light));
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .information {
+    margin: 0;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 8px;
+  }
+  .information strong {
+    color: rgb(var(--accent-blue-light));
+  }
+  .information a {
+    color: rgb(var(--accent-blue-light));
+    font-weight: bold;
+    text-decoration: none;
+  }
 
-   .information code {
-      font-size: 0.8em;
-      color: rgb(var(--accent-blue-light));
-      border-radius: 4px;
-      padding: 0.3em 0.4em;
-   }
-   
-   .code {
-      font-size: 1rem;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-      border: 1px solid rgba(var(--accent-light), 25%);
-      padding: 0.3rem 0.4rem;
-      border-radius: 8px;
-   }
+  .information a:hover {
+    text-decoration: underline;
+  }
+
+  .information code {
+    font-size: 1rem;
+    color: rgb(var(--accent-blue-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+
+  .code {
+    font-size: 1rem;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    padding: 0.3rem 0.4rem;
+    border-radius: 8px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table caption {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(var(--accent-light));
+    background: rgba(var(--accent-light), 10%);
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+  }
+
+  table thead {
+    background: rgba(var(--accent-light), 12%);
+  }
+
+  table thead th {
+    font-weight: bold;
+    padding: 0.8rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    text-align: left;
+    color: rgb(var(--accent-light));
+  }
+
+  table tbody {
+    background: rgba(var(--accent-light), 5%);
+  }
+
+  table tbody tr:nth-child(odd) {
+    background: rgba(var(--accent-light), 3%);
+  }
+
+  table tbody tr:hover {
+    background: rgba(var(--accent-light), 20%);
+  }
+
+  table th,
+  table td {
+    padding: 0.8rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    text-align: left;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  section > article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section > header {
+    margin: 0;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 8px;
+  }
+
+  .header-h2 {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>

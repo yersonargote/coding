@@ -24,7 +24,7 @@ const Code = ({ code, language }) => {
             </header>
             <hr class="hr-code" />
             <pre>
-                <code>{code}</code>
+                <code class="code">{code}</code>
             </pre>
         </section>
     );
