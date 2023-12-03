@@ -1,0 +1,85 @@
+---
+type Content = {
+  name: string;
+  friendlyName: string;
+};
+
+interface Props {
+  caption: string;
+  heads: string[];
+  content: Content[];
+}
+
+const { caption, heads, content } = Astro.props;
+---
+
+<table border="1">
+  <caption>{caption}</caption>
+  <thead>
+    <tr>
+      {heads.map((head: string) => <th>{head}</th>)}
+    </tr>
+  </thead>
+  <tbody>
+    {
+      content.map((item: Content) => (
+        <tr>
+          <>
+            <td>{item.name}</td>
+            <td>{item.friendlyName}</td>
+          </>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table caption {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(var(--accent-light));
+    background: rgba(var(--accent-light), 10%);
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+  }
+
+  table thead {
+    background: rgba(var(--accent-light), 12%);
+  }
+
+  table thead th {
+    font-weight: bold;
+    padding: 0.8rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    text-align: left;
+    color: rgb(var(--accent-light));
+  }
+
+  table tbody {
+    background: rgba(var(--accent-light), 5%);
+  }
+
+  table tbody tr:nth-child(odd) {
+    background: rgba(var(--accent-light), 3%);
+  }
+
+  table tbody tr:hover {
+    background: rgba(var(--accent-light), 20%);
+  }
+
+  table th,
+  table td {
+    padding: 0.8rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    text-align: left;
+  }
+</style>

@@ -19,7 +19,6 @@
 }
 
 .sidebar button {
-    width: 100%;
     all: unset;
     cursor: pointer;
     color: white;
@@ -42,7 +41,8 @@
     transform: rotate(90deg);
 }
 
-.sidebar button:hover, .sidebar button:focus {
+.sidebar button:hover,
+.sidebar button:focus {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgb(var(--accent-light));
 }
@@ -68,7 +68,9 @@
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.sidebar a:hover, .sidebar a:focus {
+.sidebar a:hover,
+.sidebar a:focus {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgb(var(--accent-blue-light)); /* Adjust if needed */
 }
+

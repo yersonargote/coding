@@ -1,9 +1,37 @@
 ---
 import Code from "@/components/Code/Code.jsx";
+import Table from "@/components/Table/Table.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const wslInstall = `wsl --install`;
 const language = "powershell";
+
+type Content = {
+  name: string;
+  friendlyName: string;
+};
+
+const distributionsList: Content[] = [
+  { name: "Ubuntu", friendlyName: "Ubuntu" },
+  { name: "Debian", friendlyName: "Debian GNU/Linux" },
+  { name: "kali-linux", friendlyName: "Kali Linux Rolling" },
+  { name: "Ubuntu-18.04", friendlyName: "Ubuntu 18.04 LTS" },
+  { name: "Ubuntu-20.04", friendlyName: "Ubuntu 20.04 LTS" },
+  { name: "Ubuntu-22.04", friendlyName: "Ubuntu 22.04 LTS" },
+  { name: "OracleLinux_7_9", friendlyName: "Oracle Linux 7.9" },
+  { name: "OracleLinux_8_7", friendlyName: "Oracle Linux 8.7" },
+  { name: "OracleLinux_9_1", friendlyName: "Oracle Linux 9.1" },
+  { name: "openSUSE-Leap-15.5", friendlyName: "openSUSE Leap 15.5" },
+  {
+    name: "SUSE-Linux-Enterprise-Server-15-SP4",
+    friendlyName: "SUSE Linux Enterprise Server 15 SP4",
+  },
+  {
+    name: "SUSE-Linux-Enterprise-15-SP5",
+    friendlyName: "SUSE Linux Enterprise 15 SP5",
+  },
+  { name: "openSUSE-Tumbleweed", friendlyName: "openSUSE Tumbleweed" },
+];
 ---
 
 <Layout title="Windows terminal setup" description="Setup windows terminal">
@@ -48,6 +76,7 @@ const language = "powershell";
         </p>
       </article>
     </section>
+
     <section>
       <header>
         <h3>Install WSL2</h3>
@@ -82,69 +111,11 @@ const language = "powershell";
             >wsl.exe --install &lt;Distro&gt;</code
           >.
         </p>
-        <table border="1">
-          <caption>Available Linux distributions</caption>
-          <thead>
-            <tr>
-              <th>NAME</th>
-              <th>FRIENDLY NAME</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Ubuntu</td>
-              <td>Ubuntu</td>
-            </tr>
-            <tr>
-              <td>Debian</td>
-              <td>Debian GNU/Linux</td>
-            </tr>
-            <tr>
-              <td>kali-linux</td>
-              <td>Kali Linux Rolling</td>
-            </tr>
-            <tr>
-              <td>Ubuntu-18.04</td>
-              <td>Ubuntu 18.04 LTS</td>
-            </tr>
-            <tr>
-              <td>Ubuntu-20.04</td>
-              <td>Ubuntu 20.04 LTS</td>
-            </tr>
-            <tr>
-              <td>Ubuntu-22.04</td>
-              <td>Ubuntu 22.04 LTS</td>
-            </tr>
-            <tr>
-              <td>OracleLinux_7_9</td>
-              <td>Oracle Linux 7.9</td>
-            </tr>
-            <tr>
-              <td>OracleLinux_8_7</td>
-              <td>Oracle Linux 8.7</td>
-            </tr>
-            <tr>
-              <td>OracleLinux_9_1</td>
-              <td>Oracle Linux 9.1</td>
-            </tr>
-            <tr>
-              <td>openSUSE-Leap-15.5</td>
-              <td>openSUSE Leap 15.5</td>
-            </tr>
-            <tr>
-              <td>SUSE-Linux-Enterprise-Server-15-SP4</td>
-              <td>SUSE Linux Enterprise Server 15 SP4</td>
-            </tr>
-            <tr>
-              <td>SUSE-Linux-Enterprise-15-SP5</td>
-              <td>SUSE Linux Enterprise 15 SP5</td>
-            </tr>
-            <tr>
-              <td>openSUSE-Tumbleweed</td>
-              <td>openSUSE Tumbleweed</td>
-            </tr>
-          </tbody>
-        </table>
+        <Table
+          caption="Distributions"
+          heads={["Distro", "Friendly name"]}
+          content={distributionsList}
+        />
       </article>
     </section>
   </div>
@@ -209,54 +180,6 @@ const language = "powershell";
     border: 1px solid rgba(var(--accent-light), 25%);
     padding: 0.3rem 0.4rem;
     border-radius: 8px;
-  }
-
-  table {
-    border-collapse: collapse;
-    margin: 1rem 0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  table caption {
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgb(var(--accent-light));
-    background: rgba(var(--accent-light), 10%);
-    border-radius: 8px 8px 0 0;
-    text-align: center;
-  }
-
-  table thead {
-    background: rgba(var(--accent-light), 12%);
-  }
-
-  table thead th {
-    font-weight: bold;
-    padding: 0.8rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    text-align: left;
-    color: rgb(var(--accent-light));
-  }
-
-  table tbody {
-    background: rgba(var(--accent-light), 5%);
-  }
-
-  table tbody tr:nth-child(odd) {
-    background: rgba(var(--accent-light), 3%);
-  }
-
-  table tbody tr:hover {
-    background: rgba(var(--accent-light), 20%);
-  }
-
-  table th,
-  table td {
-    padding: 0.8rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    text-align: left;
   }
 
   section {
