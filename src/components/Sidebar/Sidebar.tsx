@@ -43,7 +43,7 @@ const categories: Category[] = [
   },
 ];
 
-const Sidebar: FunctionalComponent = () => {
+const LeftSidebar: FunctionalComponent = () => {
   // Initialize all categories as closed (false)
   const initialCategoryState = categories.reduce((acc, category) => {
     acc[category.text] = false;
@@ -83,4 +83,4 @@ const Sidebar: FunctionalComponent = () => {
   );
 };
 
-export default Sidebar;
+export default LeftSidebar;

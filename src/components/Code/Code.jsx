@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks';
 
 import "@/components/Code/Code.css";
 
-const Code = ({ code, language }) => {
+const CodeBlock = ({ code, language }) => {
     const [copySuccess, setCopySuccess] = useState('');
 
     const copyToClipboard = async () => {
@@ -30,5 +30,5 @@ const Code = ({ code, language }) => {
     );
 };
 
-export default Code;
+export default CodeBlock;
 

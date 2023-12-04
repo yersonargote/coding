@@ -1,6 +1,6 @@
 ---
 import Header from "@/components/HeaderLink.astro";
-import Sidebar from "@/components/Sidebar/Sidebar.tsx";
+import Sidebar from "@/components/Sidebar/Sidebar.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
@@ -28,160 +28,157 @@ const { title = "", description = "" } = Astro.props;
       <Header />
     </header>
     <aside class="aside">
-      <Sidebar client:visible />
+      <Sidebar />
     </aside>
     <main class="main">
       <slot />
     </main>
-  </body>
+  </body><style>
+    body {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "aside main";
+      grid-template-columns: 0.8fr 6fr;
+      grid-template-rows: auto 4fr;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      gap: 1rem;
+      height: 100vh;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #1e2028;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      border-radius: 7px;
+      padding: 1rem;
+    }
+
+    .main {
+      grid-area: main;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .aside {
+      grid-area: aside;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      background-color: #1e2028;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      border-radius: 7px;
+    }
+  </style>
+
+  <style is:global>
+    :root {
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      --font-mono: monospace;
+      --accent: 136, 58, 234;
+      --accent-light: 224, 204, 250;
+      --accent-dark: 49, 10, 101;
+      --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        rgb(var(--accent-light)) 30%,
+        white 60%
+      );
+
+      --accent-blue: 0, 122, 255;
+      --accent-blue-light: 204, 229, 255;
+      --accent-blue-dark: 0, 51, 153;
+      --accent-blue-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent-blue)),
+        rgb(var(--accent-blue-light)) 30%,
+        white 60%
+      );
+    }
+
+    html {
+      font-family: var(--font-sans);
+      background: #13151a;
+      background-size: 224px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+
+    h1 {
+      width: 100%;
+      font-size: 2em;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .body-main {
+      min-width: 8rem;
+    }
+
+    p {
+      margin: 0;
+      padding: 1rem 1rem 1rem 0;
+      border-radius: 8px;
+    }
+
+    p > code {
+      color: rgb(var(--accent-blue-light));
+    }
+
+    p > a {
+      color: rgb(var(--accent-light));
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    p > a:hover {
+      text-decoration: underline;
+    }
+
+    p > strong {
+      color: rgb(var(--accent-blue-light));
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    section > article {
+      display: flex;
+      flex-direction: column;
+    }
+
+    section > header {
+      margin: 0;
+      padding: 1rem 1rem 1rem 0;
+      border-radius: 8px;
+    }
+  </style>
 </html>
-
-<style>
-  body {
-    display: grid;
-    grid-template-areas:
-      "header header"
-      "aside main";
-    grid-template-columns: 0.8fr 6fr;
-    grid-template-rows: auto 4fr;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    gap: 1rem;
-    height: 100vh;
-  }
-
-  .header {
-    grid-area: header;
-    background-color: #1e2028;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    border-radius: 7px;
-    padding: 1rem;
-  }
-
-  .main {
-    grid-area: main;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-
-  .aside {
-    grid-area: aside;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #1e2028;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    border-radius: 7px;
-  }
-</style>
-
-<style is:global>
-  :root {
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
-    --font-mono: monospace;
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-
-    --accent-blue: 0, 122, 255;
-    --accent-blue-light: 204, 229, 255;
-    --accent-blue-dark: 0, 51, 153;
-    --accent-blue-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent-blue)),
-      rgb(var(--accent-blue-light)) 30%,
-      white 60%
-    );
-  }
-
-  html {
-    font-family: var(--font-sans);
-    background: #13151a;
-    background-size: 224px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-
-  h1 {
-    width: 100%;
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-  }
-
-  h2 {
-    margin: 0;
-    font-size: 1.5em;
-  }
-
-  h3 {
-    font-size: 1.25em;
-    line-height: 1;
-    margin: 0;
-  }
-
-  .body-main {
-    min-width: 8rem;
-  }
-
-  p {
-    margin: 0;
-    padding: 1rem 1rem 1rem 0;
-    border-radius: 8px;
-  }
-
-  p > code {
-    color: rgb(var(--accent-blue-light));
-  }
-
-  p > a {
-    color: rgb(var(--accent-light));
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  p > a:hover {
-    text-decoration: underline;
-  }
-
-  p > strong {
-    color: rgb(var(--accent-blue-light));
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  section > article {
-    display: flex;
-    flex-direction: column;
-  }
-
-  section > header {
-    margin: 0;
-    padding: 1rem 1rem 1rem 0;
-    border-radius: 8px;
-  }
-
-</style>
