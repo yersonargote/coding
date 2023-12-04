@@ -1,23 +1,21 @@
 ---
+
 ---
 
-<h1 class="gradient">
-  <a class="link-image" href="/">
-	<img src="/logo.png" alt="Image logo" class="logo" />
-	Coding
-    <span>Connoisseur</span>
-  </a>
-</h1>
+<a class="gradient" href="/">
+  <img src="/logo.png" alt="Image logo" class="logo" />
+   Coding
+  <span>Connoisseur</span>
+</a>
 
 <style>
-  .gradient > a > span {
-    background-image: var(--accent-blue-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300%;
-    background-position: 0%;
-  }
-  .gradient > a {
+
+  .gradient {
+    font-size: 2em;
+    display: inline-flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -25,16 +23,19 @@
     text-decoration: none;
   }
 
-  .link-image {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+  .gradient > span {
+    background-image: var(--accent-blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    background-position: 0%;
+    margin: 0 0 0 0.25em;
   }
 
   .logo {
-	width: 3em;
-	height: 3em;
-	margin: 0 auto;
-	display: block;
+    width: 3em;
+    height: 3em;
+    margin: 0 auto;
+    display: block;
   }
 </style>

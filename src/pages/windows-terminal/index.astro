@@ -4,7 +4,7 @@ import Table from "@/components/Table/Table.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const wslInstall = `wsl --install`;
-const powershell= "powershell";
+const powershell = "powershell";
 
 type Content = {
   name: string;
@@ -35,88 +35,58 @@ const distributionsList: Content[] = [
 ---
 
 <Layout title="Windows terminal setup" description="Setupwindows terminal">
-  <header class="header-h2">
-    <h2>Windows Terminal</h2>
-  </header>
-  <div class="body-main">
+  <article>
+    <header>
+      <h1>Windows Terminal</h1>
+    </header>
     <section>
-      <article>
-        <p>
-          <strong>Windows Terminal</strong> is a new, modern, feature-rich,
-          productive terminal application for command-line users.
-        </p>
-      </article>
+      <p>
+        <strong>Windows Terminal</strong> is a new, modern, feature-rich,
+        productive terminal application for command-line users.
+      </p>
+      <h3>Install Windows Terminal</h3>
+      <p>
+        Install windows terminal from the
+        <a
+          href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab"
+          target="_blank"
+          rel="noopener noreferrer">Microsoft Store</a
+        >.
+      </p>
+      <h3>WSL2</h3>
+      <p>
+        As developers we need to be able to run Linux commands on our machines. <strong
+          >Windows Subsystem for Linux 2 (WSL2)</strong
+        > is a great way to do this.
+      </p>
+      <h3>Install WSL2</h3>
+      <p>
+        In <strong>PowerShell</strong>, you can use install <strong>WSL2</strong
+        > with the following command:
+      </p>
+      <Code code={wslInstall} language={powershell} />
+      <p>
+        More information can be found on the
+        <a
+          href="https://docs.microsoft.com/en-us/windows/wsl/install-win10"
+          target="_blank"
+          rel="noopener noreferrer">Microsoft Docs</a
+        >.
+      </p>
+      <h3>Install anothers Linux distributions</h3>
+      <p>
+        By default <code>wsl --install</code> install Ubuntu-22.04.
+      </p>
+      <p>
+        Install anothers distros using <code
+          >wsl.exe --install &lt;Distro&gt;</code
+        >.
+      </p>
+      <Table
+        caption="Distributions"
+        heads={["Distro", "Friendly name"]}
+        content={distributionsList}
+      />
     </section>
-
-    <section>
-      <header>
-        <h3>Install Windows Terminal</h3>
-      </header>
-      <article>
-        <p>
-          Install windows terminal from the
-          <a
-            href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab"
-            target="_blank"
-            rel="noopener noreferrer">Microsoft Store</a
-          >.
-        </p>
-      </article>
-    </section>
-
-    <section>
-      <header>
-        <h3>WSL2</h3>
-      </header>
-      <article>
-        <p>
-          As developers we need to be able to run Linux commands on our
-          machines. <strong>Windows Subsystem for Linux 2 (WSL2)</strong> is a
-          great way to do this.
-        </p>
-      </article>
-    </section>
-
-    <section>
-      <header>
-        <h3>Install WSL2</h3>
-      </header>
-      <article>
-        <p>
-          In <strong>PowerShell</strong>, you can use install <strong
-            >WSL2</strong
-          > with the following command:
-        </p>
-        <Code code={wslInstall} language={powershell} />
-        <p>
-          More information can be found on the
-          <a
-            href="https://docs.microsoft.com/en-us/windows/wsl/install-win10"
-            target="_blank"
-            rel="noopener noreferrer">Microsoft Docs</a
-          >.
-        </p>
-      </article>
-    </section>
-    <section>
-      <header>
-        <h3>Install anothers Linux distributions</h3>
-      </header>
-      <article>
-        <p>
-          By default <code>wsl --install</code> install Ubuntu-22.04.
-        </p>
-        <p>
-          Install anothers distros using <code
-            >wsl.exe --install &lt;Distro&gt;</code
-          >.
-        </p>
-        <Table
-          caption="Distributions"
-          heads={["Distro", "Friendly name"]}
-          content={distributionsList}
-        />
-      </article>
-    </section>
-  </div>
+  </article>
 </Layout>

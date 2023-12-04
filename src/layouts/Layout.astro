@@ -62,7 +62,6 @@ const { title = "", description = "" } = Astro.props;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       color: white;
     }
 
@@ -119,6 +118,7 @@ const { title = "", description = "" } = Astro.props;
     }
 
     h1 {
+      padding: 1rem 1rem 1rem 0;
       width: 100%;
       font-size: 2em;
       margin: 0;
@@ -126,18 +126,35 @@ const { title = "", description = "" } = Astro.props;
     }
 
     h2 {
+      padding: 1rem 1rem 1rem 0;
       margin: 0;
       font-size: 1.5em;
     }
 
     h3 {
+      padding: 1rem 1rem 1rem 0;
       font-size: 1.25em;
       line-height: 1;
       margin: 0;
     }
 
-    .body-main {
-      min-width: 8rem;
+    article {
+      display: flex;
+      flex-direction: column;
+      max-width: 47rem;
+    }
+
+    article > section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    article > header {
+      display: inline-flex;
+      justify-content: center;
+      margin: 0;
+      padding: 1rem 1rem 1rem 0;
+      border-radius: 8px;
     }
 
     p {
@@ -164,21 +181,5 @@ const { title = "", description = "" } = Astro.props;
       color: rgb(var(--accent-blue-light));
     }
 
-    section {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    section > article {
-      display: flex;
-      flex-direction: column;
-    }
-
-    section > header {
-      margin: 0;
-      padding: 1rem 1rem 1rem 0;
-      border-radius: 8px;
-    }
   </style>
 </html>
