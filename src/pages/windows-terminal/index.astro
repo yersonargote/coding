@@ -21,7 +21,7 @@ const distributionsList: Content[] = [
   { name: "OracleLinux_7_9", friendlyName: "Oracle Linux 7.9" },
   { name: "OracleLinux_8_7", friendlyName: "Oracle Linux 8.7" },
   { name: "OracleLinux_9_1", friendlyName: "Oracle Linux 9.1" },
-  { name: "openSUSE-Leap-15.5", friendlyName: "openSUSE Leap 15.5" },
+  { name: "openSUSE-Leap-15.5", friendlyName: "openSUSE Leap15.5" },
   {
     name: "SUSE-Linux-Enterprise-Server-15-SP4",
     friendlyName: "SUSE Linux Enterprise Server 15 SP4",
@@ -34,14 +34,14 @@ const distributionsList: Content[] = [
 ];
 ---
 
-<Layout title="Windows terminal setup" description="Setup windows terminal">
+<Layout title="Windows terminal setup" description="Setupwindows terminal">
   <header class="header-h2">
     <h2>Windows Terminal</h2>
   </header>
   <div class="body-main">
     <section>
       <article>
-        <p class="information">
+        <p>
           <strong>Windows Terminal</strong> is a new, modern, feature-rich,
           productive terminal application for command-line users.
         </p>
@@ -53,7 +53,7 @@ const distributionsList: Content[] = [
         <h3>Install Windows Terminal</h3>
       </header>
       <article>
-        <p class="instructions">
+        <p>
           Install windows terminal from the
           <a
             href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab"
@@ -69,7 +69,7 @@ const distributionsList: Content[] = [
         <h3>WSL2</h3>
       </header>
       <article>
-        <p class="information">
+        <p>
           As developers we need to be able to run Linux commands on our
           machines. <strong>Windows Subsystem for Linux 2 (WSL2)</strong> is a
           great way to do this.
@@ -82,13 +82,13 @@ const distributionsList: Content[] = [
         <h3>Install WSL2</h3>
       </header>
       <article>
-        <p class="information">
+        <p>
           In <strong>PowerShell</strong>, you can use install <strong
             >WSL2</strong
           > with the following command:
         </p>
         <Code code={wslInstall} language={language} client:load />
-        <p class="instructions">
+        <p>
           More information can be found on the
           <a
             href="https://docs.microsoft.com/en-us/windows/wsl/install-win10"
@@ -103,10 +103,10 @@ const distributionsList: Content[] = [
         <h3>Install anothers Linux distributions</h3>
       </header>
       <article>
-        <p class="information">
+        <p>
           By default <code>wsl --install</code> install Ubuntu-22.04.
         </p>
-        <p class="information">
+        <p>
           Install anothers distros using <code
             >wsl.exe --install &lt;Distro&gt;</code
           >.
@@ -120,90 +120,3 @@ const distributionsList: Content[] = [
     </section>
   </div>
 </Layout>
-
-<style>
-  .body-main {
-    min-width: 8rem;
-  }
-
-  .instructions {
-    margin: 0;
-    padding: 1rem 1rem 1rem 0;
-    border-radius: 8px;
-  }
-
-  .instructions code {
-    font-size: 1rem;
-    color: rgb(var(--accent-light));
-    padding: 0.3em 0.4em;
-  }
-
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-
-  .instructions a {
-    color: rgb(var(--accent-light));
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .information {
-    margin: 0;
-    padding: 1rem 1rem 1rem 0;
-    border-radius: 8px;
-  }
-  .information strong {
-    color: rgb(var(--accent-blue-light));
-  }
-  .information a {
-    color: rgb(var(--accent-blue-light));
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  .information a:hover {
-    text-decoration: underline;
-  }
-
-  .information code {
-    font-size: 1rem;
-    color: rgb(var(--accent-blue-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-
-  .code {
-    font-size: 1rem;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    padding: 0.3rem 0.4rem;
-    border-radius: 8px;
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  section > article {
-    display: flex;
-    flex-direction: column;
-  }
-
-  section > header {
-    margin: 0;
-    padding: 1rem 1rem 1rem 0;
-    border-radius: 8px;
-  }
-
-  .header-h2 {
-    margin: 0;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>

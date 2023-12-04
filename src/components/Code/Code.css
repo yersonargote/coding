@@ -16,12 +16,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
 }
 
 
 .language {
-    margin: 0 0.5rem;
+    padding: 0 0 0 0.5rem;
     font-family: var(--font-mono);
     color: rgb(var(--accent-blue-light));
 }
@@ -46,8 +45,3 @@
     margin-left: 1rem;
 }
 
-.code {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    padding: 0.5rem;
-}
