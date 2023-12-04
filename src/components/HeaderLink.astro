@@ -1,0 +1,40 @@
+---
+---
+
+
+<h1 class="gradient">
+  <a class="link-image" href="/" alt="home">
+	<img src="/logo.png" alt="Image logo" class="logo" />
+	Coding
+    <span>Connoisseur</span>
+  </a>
+</h1>
+<style>
+  .gradient > a > span {
+    background-image: var(--accent-blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .gradient > a {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    text-decoration: none;
+  }
+
+  .link-image {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .logo {
+	width: 3em;
+	height: 3em;
+	margin: 0 auto;
+	display: block;
+  }
+</style>

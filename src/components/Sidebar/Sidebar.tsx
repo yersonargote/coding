@@ -17,7 +17,7 @@ type Category = {
 const categories: Category[] = [
   {
     text: "Terminal",
-    type: "category", // Define your custom type if needed
+    type: "category",
     children: [
       { text: "Windows Terminal", slug: "windows-terminal" },
       { text: "Kitty Terminal", slug: "kitty-terminal" },
