@@ -103,6 +103,16 @@ const { title = "", description = "" } = Astro.props;
         rgb(var(--accent-blue-light)) 30%,
         white 60%
       );
+
+      --accent-grey: 142, 142, 147;
+      --accent-grey-light: 174, 174, 178;
+      --accent-grey-dark: 99, 99, 102;
+      --accent-grey-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent-grey)),
+        rgb(var(--accent-grey-light)) 30%,
+        white 60%
+      );
     }
 
     html {

@@ -2,44 +2,42 @@
 
 ---
 
-<a class="gradient" href="/">
-  <img src="/logo.webp" alt="Image logo" class="logo" />
+<a class="link" href="/">
+    <img class="logo" src="/logo.svg" alt="Logo" />
    Coding
   <span>Connoisseur</span>
 </a>
 
 <style>
-
-  .gradient {
+  .link {
     gap: 0.25em;
     font-size: 2em;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     font-weight: bold;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200%;
+    color: white;
     text-decoration: none;
   }
 
-  .gradient > span {
-    background-image: var(--accent-blue-gradient);
+  .link > span {
+    background-image: var(--accent-grey-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
-    background-position: 0%;
-    margin: 0 0 0 0.25em;
   }
 
   .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    margin: 0;
+    max-width: 2.5em;
     object-fit: cover;
     object-position: center;
-    height: 2.5em;
-    margin: 0 auto;
-    display: block;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
   }
 </style>
