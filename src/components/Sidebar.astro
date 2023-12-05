@@ -1,0 +1,123 @@
+---
+const categories = [
+  {
+    text: "Terminal",
+    type: "category",
+    children: [
+      { text: "Windows Terminal", slug: "windows-terminal" },
+      { text: "Kitty Terminal", slug: "kitty-terminal" },
+    ],
+  },
+  {
+    text: "Languages",
+    type: "category",
+    children: [
+      { text: "Python", slug: "python" },
+      { text: "Java", slug: "java" },
+      { text: "JavaScript", slug: "javascript" },
+      { text: "Rust", slug: "rust" },
+    ],
+  },
+  {
+    text: "Editors",
+    type: "category",
+    children: [
+      { text: "VSCode", slug: "vscode" },
+      { text: "Neovim", slug: "nvim" },
+    ],
+  },
+];
+---
+
+<aside class="sidebar">
+  {
+    categories.map((category) => (
+      <details class="category">
+        <summary>
+          {category.text}
+          <span class="arrow-indicator">▶</span>{" "}
+          {/* Optional, for visual indication */}
+        </summary>
+        <div class="children">
+          {category.children.map((child) => (
+            <a href={`/${child.slug}`}>{child.text}</a>
+          ))}
+        </div>
+      </details>
+    ))
+  }
+</aside>
+
+<style>
+  .sidebar {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar .category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar .category summary {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: #23262d;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .sidebar .category summary .arrow-indicator {
+    padding: 0 0 0 0.5rem;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar .category[open] summary .arrow-indicator {
+    transform: rotate(90deg);
+  }
+
+  .sidebar .category summary:hover,
+  .sidebar .category summary:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(var(--accent-light));
+  }
+
+  .sidebar .category .children {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .sidebar .category[open] .children {
+    display: flex;
+  }
+
+  .sidebar a {
+    margin: 0;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+  }
+
+  .sidebar a:hover,
+  .sidebar a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(var(--accent-blue-light));
+  }
+</style>
