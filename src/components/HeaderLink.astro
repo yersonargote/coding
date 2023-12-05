@@ -3,7 +3,7 @@
 ---
 
 <a class="gradient" href="/">
-  <img src="/logo.png" alt="Image logo" class="logo" />
+  <img src="/logo.webp" alt="Image logo" class="logo" />
    Coding
   <span>Connoisseur</span>
 </a>
@@ -11,6 +11,7 @@
 <style>
 
   .gradient {
+    gap: 0.25em;
     font-size: 2em;
     display: inline-flex;
     font-weight: bold;
@@ -33,9 +34,12 @@
   }
 
   .logo {
-    width: 3em;
-    height: 3em;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 2.5em;
     margin: 0 auto;
     display: block;
+    aspect-ratio: 1 / 1;
   }
 </style>
