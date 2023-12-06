@@ -1,16 +1,36 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Card from "@/components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
-<Layout title="Coding" description="This page is a personal blog to teach about programming tools and setup">
-    <article>
-        <header>
-            <h1>Coding</h1>
-        </header>
-        <section>
-            <p>This page is a personal blog to teach about programming tools and setup.</p>
-        </section>
-    </article>
+
+<Layout
+  title="Coding"
+  description="This page is a personal blog to teach about programming tools and setup"
+>
+  <article>
+    <header>
+      <h1>Coding</h1>
+    </header>
+    <section>
+      <p>
+        This page is a personal blog to teach about programming tools and setup.
+      </p>
+      <ul role="list" class="link-card-grid">
+        <Card
+          title="Windows Terminal"
+          body="A modern terminal emulator for Windows 10"
+          href="/windows-terminal"
+        />
+      </ul>
+    </section>
+  </article>
 </Layout>
 
 <style>
+  .link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
 </style>

@@ -6,7 +6,9 @@ const { language, code } = Astro.props;
   <header class="code-header">
     <span class="code-language">{language}</span>
     <div>
-      <button id="copy-button" class="copy-button" onclick="copyToClipboard()">Copy</button>
+      <button id="copy-button" class="copy-button" onclick="copyToClipboard()"
+        >Copy</button
+      >
     </div>
   </header>
   <hr class="code-hr" />
@@ -60,7 +62,6 @@ const { language, code } = Astro.props;
   .code-container:hover .copy-button {
     display: inline-flex;
   }
-
 </style>
 
 <script is:inline>
