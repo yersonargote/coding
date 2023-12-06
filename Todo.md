@@ -1,8 +1,8 @@
 # TODOs
 
--[ ] Make the copy in the clipboard of the tag code.
+-[ x ] Make the copy in the clipboard of the tag code.
 
--[ ] Change the sidebar buttons for a better design. Maybe using preact.
+-[ x ] Change the sidebar buttons for a better design.
 
 # Futures ideas
 

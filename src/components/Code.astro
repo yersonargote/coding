@@ -6,8 +6,7 @@ const { language, code } = Astro.props;
   <header class="code-header">
     <span class="code-language">{language}</span>
     <div>
-      <span id="copy-status" class="copy-status"></span>
-      <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+      <button id="copy-button" class="copy-button" onclick="copyToClipboard()">Copy</button>
     </div>
   </header>
   <hr class="code-hr" />
@@ -41,7 +40,7 @@ const { language, code } = Astro.props;
   }
 
   .code-language {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 0 0 0 0.5rem;
     font-family: var(--font-mono);
     color: rgb(var(--accent-blue-light));
@@ -62,31 +61,25 @@ const { language, code } = Astro.props;
     display: inline-flex;
   }
 
-  .copy-status {
-    display: none;
-    font-size: 0.8rem;
-    color: rgb(var(--accent-light));
-  }
 </style>
 
 <script is:inline>
   async function copyToClipboard() {
     const codeBlock = document.getElementById("code-block");
-    const copyStatus = document.getElementById("copy-status");
+    const copyButton = document.getElementById("copy-button");
 
     await navigator.clipboard
       .writeText(codeBlock.innerText)
       .then(() => {
-        copyStatus.innerText = "Copied!";
-        copyStatus.style.display = "inline-flex";
+        copyButton.innerText = "Copied!";
         setTimeout(() => {
-          copyStatus.style.display = "none";
+          copyButton.innerText = "Copy";
         }, 2000);
       })
       .catch(() => {
-        copyStatus.innerText = "Failed to copy!";
+        copyButton.innerText = "Failed to copy!";
         setTimeout(() => {
-          copyStatus.style.display = "none";
+          copyButton.innerText = "Copy";
         }, 2000);
       });
   }
