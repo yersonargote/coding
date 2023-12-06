@@ -1,9 +1,9 @@
 .code-block {
+    margin: 0;
     font-size: 1rem;
     background: rgba(var(--accent-light), 12%);
-    border-radius: 4px;
     border: 1px solid rgba(var(--accent-light), 25%);
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .hr-code {
@@ -40,7 +40,7 @@
 }
 
 .copy-success {
+    font-size: 0.8rem;
     color: rgb(var(--accent-light));
-    margin-left: 1rem;
 }
 
