@@ -3,7 +3,9 @@
 ---
 
 <a class="link" href="/">
-  <img class="logo" src="/logo.svg" alt="Logo" />
+  <div class="container">
+  <img class="logo" src="/logo.jpg" alt="Logo" />
+  </div>
   <span>Coding</span>
 </a>
 
@@ -20,23 +22,23 @@
     text-decoration: none;
   }
 
+  .link .container {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
   .link > span {
-    background-image: var(--accent-grey-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
+    color: white;
   }
 
   .logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     margin: 0;
     max-width: 2.5em;
     object-fit: cover;
     object-position: center;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
   }
 </style>
