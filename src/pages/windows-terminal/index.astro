@@ -1,5 +1,5 @@
 ---
-import Code from "@/components/Code.astro";
+import Code from "@/components/Code/Code.astro";
 import Table from "@/components/Table.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -84,6 +84,7 @@ const distributionsList: Content[] = [
           >wsl.exe --install &lt;Distro&gt;</code
         >.
       </p>
+      <Code code="wsl.exe --install Ubuntu-20.04" language={powershell} />
       <Table
         caption="Distributions"
         heads={["Distro", "Friendly name"]}
