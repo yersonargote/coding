@@ -1,13 +1,12 @@
 ---
-import CodeBlock from "@/components/Code/Code.jsx";
+import { CodeBlock } from "@/components/Code/Code.jsx";
 
 interface props {
   language: string;
   code: string;
 }
 
-const {language, code} = Astro.props;
-
+const { language, code } = Astro.props;
 ---
 
 <CodeBlock code={code} language={language} client:visible />

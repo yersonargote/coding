@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import "@/components/Code/Code.css";
 
-const CodeBlock = ({ language, code }) => {
+export function CodeBlock ({ language, code }) {
   const [buttonText, setButtonText] = useState("Copy");
 
   const copyToClipboard = async () => {
@@ -37,5 +37,3 @@ const CodeBlock = ({ language, code }) => {
     </section>
   );
 };
-
-export default CodeBlock;
