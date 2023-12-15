@@ -39,7 +39,7 @@ const { caption, heads, content } = Astro.props;
     border-collapse: collapse;
     margin: 0 0 1rem 0;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: auto;
   }
 
   table caption {
@@ -50,6 +50,7 @@ const { caption, heads, content } = Astro.props;
     background: rgba(var(--accent-light), 10%);
     border-radius: 8px 8px 0 0;
     text-align: center;
+    border: 1px solid rgba(var(--accent-light), 25%);
   }
 
   table thead {

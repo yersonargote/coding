@@ -35,19 +35,19 @@ const { title = "", description = "" } = Astro.props;
     </main>
     <style>
       body {
+        width: 100%;
         display: grid;
         grid-template-areas:
           "header header"
           "aside main";
         grid-template-columns: 0.8fr 6fr;
         /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-        grid-template-rows: 1fr 4fr;
+        grid-template-rows: 1fr 8fr;
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        gap: 1rem;
-        height: 100vh;
-        width: 100%;
+        gap: 1rem 0;
+        height: fit-content;
       }
 
       .header {
@@ -150,12 +150,18 @@ const { title = "", description = "" } = Astro.props;
       }
 
       article {
-        min-width: minmax(300px, 1fr);
+        width: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        max-width: 47rem;
-        padding: 0 1rem 0 0;
+        max-width: 70vw;
+        padding: 0 1rem;
+      }
+
+      @media (max-width: 768px) {
+        article {
+          width: 65vw;
+        }
       }
 
       article > section {
@@ -171,7 +177,6 @@ const { title = "", description = "" } = Astro.props;
         justify-content: center;
         margin: 0 0 1rem 0;
         padding: 0;
-        border-radius: 8px;
       }
 
       p {

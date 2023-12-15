@@ -1,5 +1,6 @@
 .code-container {
-  width: 100%;
+  all: unset;
+  /* max-width: 20rem; */
   margin: 0 0 1rem 0;
   padding: 0.5rem;
   border-radius: 7px;
@@ -17,12 +18,27 @@
 }
 
 .code-block {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   margin: 0 0 0 0.5rem;
   padding: 0 0 0.5rem 0;
   font-size: 1rem;
   overflow: auto;
-  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.code-block > code {
+  display: inline-block;
+  font-family: var(--font-mono);
+  color: rgb(var(--accent-blue-light));
+  white-space: pre;
+  /* word-spacing: normal; */
+  word-break: break-word;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
 }
 
 
